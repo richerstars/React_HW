@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import '../styles/Timer.css';
 
 const Timer = () => {
-    const countDownDate = new Date( 'Jan 1, 2023 00:00:00' ).getTime();
-    const [ days, setDays ] = useState( countDownDate );
-    const [ hours, setHours ] = useState( countDownDate );
-    const [ minutes, setMinutes ] = useState( countDownDate );
-    const [ seconds, setSeconds ] = useState( countDownDate );
+    const [ days, setDays ] = useState( 0 );
+    const [ hours, setHours ] = useState( 0 );
+    const [ minutes, setMinutes ] = useState( 0 );
+    const [ seconds, setSeconds ] = useState( 0 );
 
     function SetNewDate() {
         setInterval( () => {
+            const countDownDate = new Date( 'Jan 1, 2023 00:00:00' ).getTime();
             const now = new Date().getTime();
-            setDays( Math.floor( (days - now) / (1000 * 60 * 60 * 24) ) );
-            setHours( Math.floor( ((days - now) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) ) );
-            setMinutes( Math.floor( ((days - now) % (1000 * 60 * 60)) / (1000 * 60) ) );
-            setSeconds( Math.floor( ((days - now) % (1000 * 60)) / 1000 ) );
+            setDays( Math.floor( (countDownDate - now) / (1000 * 60 * 60 * 24) ) );
+            setHours( Math.floor( ((countDownDate - now) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) ) );
+            setMinutes( Math.floor( ((countDownDate - now) % (1000 * 60 * 60)) / (1000 * 60) ) );
+            setSeconds( Math.floor( ((countDownDate - now) % (1000 * 60)) / 1000 ) );
         }, 1000 );
     }
 
