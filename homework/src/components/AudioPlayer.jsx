@@ -38,14 +38,12 @@ const AudioPlayer = ( { tracks } ) => {
     };
 
     const onScrub = (value) => {
-        // Clear any timers already running
         clearInterval(intervalRef.current);
         audioRef.current.currentTime = value;
         setTrackProgress(audioRef.current.currentTime);
     };
 
     const onScrubEnd = () => {
-        // If not already playing, start
         if (!isPlaying) {
             setIsPlaying(true);
         }
