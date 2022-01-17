@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Timer.css';
 
 const Timer = () => {
@@ -7,7 +7,7 @@ const Timer = () => {
     const [ minutes, setMinutes ] = useState( 0 );
     const [ seconds, setSeconds ] = useState( 0 );
 
-useEffect(()=>{
+    const updateData = () => {
         setInterval( () => {
             const countDownDate = new Date( 'Jan 1, 2023 00:00:00' ).getTime();
             const now = new Date().getTime();
@@ -16,7 +16,11 @@ useEffect(()=>{
             setMinutes( Math.floor( ((countDownDate - now) % (1000 * 60 * 60)) / (1000 * 60) ) );
             setSeconds( Math.floor( ((countDownDate - now) % (1000 * 60)) / 1000 ) );
         }, 1000 );
-})
+    }
+
+    useEffect( () => {
+        updateData();
+    } )
     return (
         <div className="main">
             <h1> New Year is coming!</h1>
