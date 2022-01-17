@@ -8,7 +8,7 @@ const Timer = () => {
     const [ seconds, setSeconds ] = useState( 0 );
 
     const updateData = () => {
-        setInterval( () => {
+        const timeout = setInterval( () => {
             const countDownDate = new Date( 'Jan 1, 2023 00:00:00' ).getTime();
             const now = new Date().getTime();
             setDays( Math.floor( (countDownDate - now) / (1000 * 60 * 60 * 24) ) );
@@ -16,6 +16,9 @@ const Timer = () => {
             setMinutes( Math.floor( ((countDownDate - now) % (1000 * 60 * 60)) / (1000 * 60) ) );
             setSeconds( Math.floor( ((countDownDate - now) % (1000 * 60)) / 1000 ) );
         }, 1000 );
+       return (()=>{
+           clearInterval(timeout);
+       })
     }
 
     useEffect( () => {
