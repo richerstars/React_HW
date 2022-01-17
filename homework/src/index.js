@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import AudioPlayer from '../src/components/AudioPlayer'
+import tracks from "./tracks";
 
 ReactDOM.render(
-    <App />,
+    <AudioPlayer tracks={tracks}/>,
   document.getElementById('root')
 );
