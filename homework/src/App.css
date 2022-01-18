@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background: #143960;
+}
+
+.mainWrapper {
+    margin: 200px auto;
+    max-width: 600px;
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    padding: 46px;
+}
+
+.form input {
+    outline: none;
+    width: 430px;
+    height: 60px;
+    border: 1px solid #ccc;
+    font-size: 17px;
+    padding-left: 15px;
+    margin: 20px 0 20px 0;
+    text-align: center;
+}
+
+.form button {
+    width: 67px;
+    height: 60px;
+    border: none;
+    background: #f58f28;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.form button:disabled,
+button[disabled]{
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.buttons {
+    gap: 10px;
+    display: flex;
+    margin-top: 12px;
+    margin-left: 173px;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 45px;
+    line-height: 45px;
+    position: relative;
+    background: #f2f2f2;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    padding: 0 15px;
+}
+
+.done {
+    text-decoration-line: line-through;
+}
+h1{
+    text-align: center;
+    cursor: default;
+}
+.todoShow{
+    text-align: center;
+    font-size: 40px;
+}
+.tasks{
+    padding: 5px;
+    margin-top: 10px;
+    border: 2px solid green;
+    color: #f58f28;
+}
+.checked{
+    padding: 5px;
+    margin-top: 10px;
+    border: 2px solid red;
+    color: bisque;
+}
+p{
+    text-align: center;
+    color: black;
+    font-size: 30px;
+}
