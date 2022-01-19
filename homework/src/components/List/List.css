@@ -1,0 +1,32 @@
+.buttons {
+    gap: 10px;
+    display: flex;
+    margin-top: 12px;
+    margin-left: 173px;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 45px;
+    line-height: 45px;
+    position: relative;
+    background: #f2f2f2;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    padding: 0 15px;
+}
+
+.tasks{
+    padding: 5px;
+    margin-top: 10px;
+    border: 2px solid green;
+    color: #f58f28;
+}
+.checked{
+    padding: 5px;
+    margin-top: 10px;
+    border: 2px solid red;
+    color: bisque;
+}

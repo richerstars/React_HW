@@ -1,0 +1,36 @@
+.mainWrapper {
+    margin: 200px auto;
+    max-width: 600px;
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    padding: 46px;
+}
+
+.form input {
+    outline: none;
+    width: 430px;
+    height: 60px;
+    border: 1px solid #ccc;
+    font-size: 17px;
+    padding-left: 15px;
+    margin: 20px 0 20px 0;
+    text-align: center;
+}
+
+.form button {
+    width: 67px;
+    height: 60px;
+    border: none;
+    background: #f58f28;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.form button:disabled,
+button[disabled]{
+    opacity: 0.3;
+    cursor: not-allowed;
+}
