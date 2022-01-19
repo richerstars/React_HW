@@ -1,12 +1,11 @@
 import React from 'react';
 import './Timer.css';
-
+import constants from '../../constants/constants'
 class Timer extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            now: new Date().getTime(),
-            countDownDate: new Date( 'Jan 1, 2023 00:00:00' ).getTime(),
+            now: constants.nowDate,
             days: 0,
             hours: 0,
             minutes: 0,
@@ -15,23 +14,23 @@ class Timer extends React.Component {
     }
 
     componentDidMount() {
-        this.timerID = setInterval(
+        constants.timerID = setInterval(
             () => this.updateData(),
             1000
         );
     }
 
     componentWillUnmount() {
-        clearInterval( this.timerID );
+        clearInterval( constants.timerID );
     }
 
     updateData() {
         this.setState( {
             now: new Date().getTime(),
-            days: Math.floor( (this.state.countDownDate-this.state.now) / (1000 * 60 * 60 * 24) ),
-            hours: Math.floor( ((this.state.countDownDate-this.state.now) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) ),
-            minutes: Math.floor( ((this.state.countDownDate-this.state.now) % (1000 * 60 * 60)) / (1000 * 60) ),
-            seconds: Math.floor( ((this.state.countDownDate-this.state.now) % (1000 * 60)) / 1000 ),
+            days: Math.floor( (constants.countDownDate-this.state.now) / (1000 * 60 * 60 * 24) ),
+            hours: Math.floor( ((constants.countDownDate-this.state.now) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) ),
+            minutes: Math.floor( ((constants.countDownDate-this.state.now) % (1000 * 60 * 60)) / (1000 * 60) ),
+            seconds: Math.floor( ((constants.countDownDate-this.state.now) % (1000 * 60)) / 1000 ),
         } );
     }
 
