@@ -3,13 +3,14 @@ import axios from "axios";
 import Form from "./components/Form/Form";
 import List from "./components/List/List";
 import './App.css';
+import constants from "./constants/constants"
 import Loader from "./components/Loader/Loader";
 
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {todos: [{value: 'test', id: 10000, isChecked: false}]};
+        this.state = {todos: [{title: 'test', id: 10000, isChecked: false}]};
     }
 
     componentDidMount() {
@@ -34,19 +35,24 @@ class App extends Component {
 
     getDateFromApi = async () => {
         try {
-            const response = await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10');
-            console.log(response.data);
+            const response = await axios.get(constants.url);
+            this.setDateFromApi(response.data);
         } catch (error) {
             console.log(error)
         }
     }
 
+    setDateFromApi = (data) => {this.setState({todos : data})}
+
     render() {
         return (
-            <div className="mainWrapper">
-                <h1> Todo List</h1>
-                <Form addItem={this.addListItem}/>
-                <List todos={this.state.todos} changeTodo={this.changeChecked} deleteTodo={this.removeListItem}/>
+            <div>
+                {/*<Loader/>*/}
+                <div className="mainWrapper">
+                    <h1> Todo List</h1>
+                    <Form addItem={this.addListItem}/>
+                    <List todos={this.state.todos} changeTodo={this.changeChecked} deleteTodo={this.removeListItem}/>
+                </div>
             </div>
         );
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ListItem = ({value, checked, id, deleteTodo, isChecked}) => {
+const ListItem = ({title, checked, id, deleteTodo, isChecked}) => {
     const delTodo = () =>{
         deleteTodo(id);
     }
@@ -9,7 +9,7 @@ const ListItem = ({value, checked, id, deleteTodo, isChecked}) => {
     }
     return(
     <div className={isChecked ? "checked" : "tasks" }>
-        <p>{value}</p>
+        <p>{title}</p>
         <div className="buttons">
             <button className="list" onClick={delTodo}>Delete</button>
             <button className="list" onClick={moveToChecked}>Checked</button>

@@ -23,10 +23,15 @@
     margin-top: 10px;
     border: 2px solid green;
     color: #f58f28;
+    cursor: default;
 }
 .checked{
     padding: 5px;
     margin-top: 10px;
     border: 2px solid red;
     color: bisque;
+}
+.list:hover{
+    cursor: pointer;
+    border-color: red;
 }

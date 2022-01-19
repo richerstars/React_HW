@@ -16,7 +16,7 @@ class Form extends Component {
 
     handleSubmitValue = () => {
         this.props.addItem({
-            value: this.state.value,
+            title: this.state.value,
             id: Date.now(),
             isChecked: false,
         });
