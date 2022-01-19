@@ -1,6 +1,7 @@
 import React from 'react';
 import './Timer.css';
-import constants from '../../constants/constants'
+import constants from '../../constants/constants';
+
 class Timer extends React.Component {
     constructor(props) {
         super(props);
@@ -14,31 +15,32 @@ class Timer extends React.Component {
     }
 
     componentDidMount() {
-        constants.timerID = setInterval(
+        this.timerID = setInterval(
             () => this.updateData(),
-            1000
+            constants.timeToUpdate
         );
     }
 
     componentWillUnmount() {
-        clearInterval( constants.timerID );
+        clearInterval(this.timerID);
     }
 
     updateData() {
-        this.setState( {
+        this.setState({
             now: new Date().getTime(),
-            days: Math.floor( (constants.countDownDate-this.state.now) / (1000 * 60 * 60 * 24) ),
-            hours: Math.floor( ((constants.countDownDate-this.state.now) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) ),
-            minutes: Math.floor( ((constants.countDownDate-this.state.now) % (1000 * 60 * 60)) / (1000 * 60) ),
-            seconds: Math.floor( ((constants.countDownDate-this.state.now) % (1000 * 60)) / 1000 ),
-        } );
+            days: Math.floor((constants.countDownDate - this.state.now) / (1000 * 60 * 60 * 24)),
+            hours: Math.floor(((constants.countDownDate - this.state.now) %
+                (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+            minutes: Math.floor(((constants.countDownDate - this.state.now) % (1000 * 60 * 60)) / (1000 * 60)),
+            seconds: Math.floor(((constants.countDownDate - this.state.now) % (1000 * 60)) / 1000),
+        });
     }
 
     render() {
         return (
             <div className="main">
                 <h1> New Year is coming!</h1>
-                <h2>{ this.state.days } : { this.state.hours } : { this.state.minutes } : { this.state.seconds }</h2>
+                <h2>{this.state.days} : {this.state.hours} : {this.state.minutes} : {this.state.seconds}</h2>
             </div>
         );
     }
