@@ -1,18 +1,18 @@
 import React from 'react';
 
 const ListItem = ({title, checked, id, deleteTodo, isChecked}) => {
-    const delTodo = () =>{
+    const handleDelTodo = () =>{
         deleteTodo(id);
     }
-    const moveToChecked = ()=>{
+    const handleMoveToChecked = ()=>{
         checked(id);
     }
     return(
     <div className={isChecked ? "checked" : "tasks" }>
         <p>{title}</p>
         <div className="buttons">
-            <button className="list" onClick={delTodo}>Delete</button>
-            <button className="list" onClick={moveToChecked}>Checked</button>
+            <button className="list" onClick={handleDelTodo}>Delete</button>
+            <button className="list" onClick={handleMoveToChecked}>Checked</button>
         </div>
     </div>
 );}
