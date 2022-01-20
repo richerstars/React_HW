@@ -7,7 +7,6 @@ import constants from "./constants/urls";
 import numberConstants from "./constants/numberConstants";
 import Loader from "./components/Loader/Loader";
 
-
 class App extends Component {
     constructor(props) {
         super(props);
@@ -49,11 +48,8 @@ class App extends Component {
     getDateFromApi = async () => {
         try {
             this.startLoader();
-            const response = await axios.get(constants.getDataUrl);
+            const response = await axios.get(`${constants.Url}?_limit=10`);
             this.setState({todos: response.data});
-        } catch (error) {
-            // eslint-disable-next-line no-console
-            console.log(error);
         } finally {
             this.stopLoader();
         }
@@ -62,7 +58,7 @@ class App extends Component {
     deleteDateFromApi = async (id) => {
         try {
             this.startLoader();
-            await axios.delete(`${constants.deletePutDataUrl}${id}`);
+            await axios.delete(`${constants.Url}/${id}`);
             this.removeListItem(id);
         } catch (error) {
             // eslint-disable-next-line no-console
@@ -74,7 +70,7 @@ class App extends Component {
     changeDateFromApi = async (id) => {
         try {
             this.startLoader();
-            await axios.put(`${constants.deletePutDataUrl}${id}`, this.state.isLoading);
+            await axios.put(`${constants.Url}/${id}`, this.state.isLoading);
         } catch (error) {
             // eslint-disable-next-line no-console
             console.log(error);
@@ -87,7 +83,7 @@ class App extends Component {
     addDateToApi = async (value) => {
         try {
             this.startLoader();
-            await axios.post(constants.postDataUrl, value);
+            await axios.post(constants.Url, value);
             this.addListItem(value);
         } catch (error) {
             // eslint-disable-next-line no-console
