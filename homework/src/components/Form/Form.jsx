@@ -20,7 +20,7 @@ class Form extends Component {
             id: Date.now(),
             isChecked: false,
         });
-        this.setState({value: ''})
+        this.setState({value: ''});
     }
 
     render() {

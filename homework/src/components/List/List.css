@@ -21,7 +21,7 @@
 .tasks{
     padding: 5px;
     margin-top: 10px;
-    border: 2px solid green;
+    border: 2px solid #7f9eef;
     color: #f58f28;
     cursor: default;
 }
@@ -33,5 +33,5 @@
 }
 .list:hover{
     cursor: pointer;
-    border-color: red;
+    border-color:#f58f28;
 }

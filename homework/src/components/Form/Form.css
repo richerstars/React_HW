@@ -12,7 +12,7 @@
     width: 430px;
     height: 60px;
     border: 1px solid #ccc;
-    font-size: 17px;
+    font-size: 25px;
     padding-left: 15px;
     margin: 20px 0 20px 0;
     text-align: center;
@@ -24,7 +24,7 @@
     border: none;
     background: #f58f28;
     color: #fff;
-    font-size: 17px;
+    font-size: 25px;
     cursor: pointer;
     margin-left: 10px;
 }
