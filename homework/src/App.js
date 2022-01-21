@@ -98,11 +98,13 @@ class App extends Component {
             <div className="mainWrapper">
                 <h1> Todo List</h1>
                 <Form addItem={this.addDateToApi}/>
-                {this.state.isLoading ?
-                    <Loader/> :
-                    <List todos={this.state.todos}
-                        changeTodo={this.changeDateFromApi}
-                        deleteTodo={this.deleteDateFromApi}/>
+                {this.state.isLoading
+                    ? <Loader/>
+                    : this.state.todos.length
+                        ? <List todos={this.state.todos}
+                            changeTodo={this.changeDateFromApi}
+                            deleteTodo={this.deleteDateFromApi}/>
+                        : <div> Sry, no data</div>
                 }
             </div>
         );
