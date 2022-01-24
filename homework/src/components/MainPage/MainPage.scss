@@ -1,0 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cards {
+  border: 2px solid black;
+  display: flex;
+  height: 680px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  margin: 20px;
+  background: #e1e1e1;
+}
+.photo {
+  margin: 10px;
+}
