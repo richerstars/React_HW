@@ -1,4 +1,5 @@
 import React from 'react';
+import './Header.scss';
 
 const Header = () => {
     const headers = [
@@ -10,9 +11,9 @@ const Header = () => {
         'Address',
     ];
     return (
-        <div>
+        <>
             {headers.map((el) => <div key={el}>{el}</div>)}
-        </div>
+        </>
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import axios from "axios";
 import Loader from "../Loader/Loader";
 import Header from "./Header/Header";
@@ -25,11 +25,24 @@ class MainPage extends Component {
         this.setState({isLoading: false});
     };
 
+    parseArray = (array) => {
+        return array.map(data => {
+            return {
+                name: data.name,
+                username: data.username,
+                email: data.email,
+                phone: data.phone,
+                website: data.website,
+                address: data.address.city,
+            }
+        })
+    }
+
     getUsersFromApi = async () => {
         try {
             this.startLoader();
             const {data} = await axios.get('https://jsonplaceholder.typicode.com/users');
-            return this.setState({users: data});
+            return this.setState({users: this.parseArray(data)});
         } catch (error) {
             console.log(error);
         } finally {
@@ -38,8 +51,9 @@ class MainPage extends Component {
     };
 
     render() {
+        console.log(this.state.users);
         return (
-            <div>
+            <>
                 {this.state.isLoading
                     ? <Loader/>
                     :
@@ -52,7 +66,7 @@ class MainPage extends Component {
                         </div>
                     </div>
                 }
-            </div>
+            </>
         );
     }
 }
