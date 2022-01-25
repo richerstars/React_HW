@@ -4,16 +4,23 @@
   box-sizing: border-box;
 }
 
+.wrapper{
+  margin-top: 150px;
+}
+
 .cards {
-  border: 2px solid black;
+  border: 2px solid #adadad;
   display: flex;
-  height: 680px;
+  height: 600px;
   flex-direction: row;
   flex-wrap: wrap;
   overflow-y: auto;
   margin: 20px;
+  justify-content: center;
+  align-items: center;
   background: #e1e1e1;
 }
 .photo {
   margin: 10px;
+  cursor: pointer;
 }

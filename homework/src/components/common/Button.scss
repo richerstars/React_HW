@@ -8,5 +8,8 @@
   height: 50px;
   margin: 10px 15px;
   cursor: pointer;
-  border-radius: 3px;
+  border: 2px solid #adadad;
+  &:hover{
+    background-color: aquamarine;
+  }
 }
