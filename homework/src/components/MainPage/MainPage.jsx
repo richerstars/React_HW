@@ -1,9 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from "axios";
 import Loader from "../Loader/Loader";
 import Header from "./Header/Header";
 import Rows from "./Rows/Rows";
 import "./MainPage.scss";
+import numberConstants from "../constants/numberConstants";
+import url from "../constants/url";
 
 class MainPage extends Component {
     constructor(props) {
@@ -15,16 +17,8 @@ class MainPage extends Component {
     }
 
     componentDidMount() {
-        setTimeout(this.getUsersFromApi, 1500);
+        setTimeout(this.getUsersFromApi, numberConstants.delay);
     }
-
-    startLoader = () => {
-        this.setState({isLoading: true});
-    };
-
-    stopLoader = () => {
-        this.setState({isLoading: false});
-    };
 
     parseArray = (array) => {
         return array.map(data => {
@@ -35,19 +29,17 @@ class MainPage extends Component {
                 phone: data.phone,
                 website: data.website,
                 address: data.address.city,
-            }
-        })
-    }
+            };
+        });
+    };
 
     getUsersFromApi = async () => {
         try {
-            this.startLoader();
-            const {data} = await axios.get('https://jsonplaceholder.typicode.com/users');
-            return this.setState({users: this.parseArray(data)});
-        } catch (error) {
-            console.log(error);
+            this.setState({isLoading: true});
+            const {data} = await axios.get(url.GET_DATA);
+            this.setState({users: this.parseArray(data)});
         } finally {
-            this.stopLoader();
+            this.setState({isLoading: false});
         }
     };
 
@@ -58,10 +50,12 @@ class MainPage extends Component {
                     ? <Loader/>
                     :
                     <div className="table">
-                        <div className="table-row-head">
-                            <Header/>
+                        <div className="table-header-big">
+                            <Header tableRowClass="table-row-two" itemClass="table-row-item"/>
                         </div>
                         <div className="table-row">
+                            <Header itemClass="table-row-one-item"
+                                    tableRowClass="table-row-one"/>
                             <Rows users={this.state.users}/>
                         </div>
                     </div>

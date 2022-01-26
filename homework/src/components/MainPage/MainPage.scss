@@ -1,23 +1,16 @@
-$base-cell-color: rgba(255,255,255,0.2);
-$base-header-color: #2905c7f7;
-$base-border-color: rgba(255, 255, 255, 0.87);
+$header: rgba(68, 229, 159, 0.97);
+$font-color: rgba(255, 255, 255, 1);
+$table: rgb(119, 119, 119);
+$body-color: rgb(211, 156, 88,1);
+$item-color: rgb(168, 82, 82,1);
 
 * {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-html,
 body {
-  height: calc(100% - 120px);
-}
-
-body  {
-  margin: 0;
-  background: linear-gradient(45deg, #49a09d, #5f2c82) no-repeat fixed;
-  font-family: sans-serif;
-  font-weight: 100;
+  background: $body-color;
 }
 
 @mixin gridCell {
@@ -25,36 +18,34 @@ body  {
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(6, 1fr);
 }
-%cell {
+%table-item {
   text-align: center;
-  border-top: 1px solid $base-border-color;
-  border-bottom: 1px solid $base-border-color;
-  background-color: $base-cell-color;
-  color: #fff;
+  border: 1px solid $font-color;
+  color: $font-color;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 5px;
+  font-size: 14px;
 }
 
 .table {
   width: 1200px;
   margin: 120px auto;
   border-collapse: collapse;
-  box-shadow: 0 0 20px rgba(0,0,0,0.7);
-
-  &-row-head {
-    background-color: $base-header-color;
-  }
+  box-shadow: 0 0 5px $font-color;
+  background-color: $table;
 
   &-row {
     &-item {
-      @extend %cell;
+      background-color: $header;
+      @extend %table-item;
     }
     &-one{
       display: none;
       &-item {
-        @extend %cell;
+        @extend %table-item;
       }
     }
     &-two{
@@ -64,7 +55,8 @@ body  {
         text-overflow: ellipsis;
         overflow: hidden;
         padding: 5px;
-        @extend %cell;
+        background-color: $item-color;
+        @extend %table-item;
       }
     }
   }
@@ -74,24 +66,26 @@ body  {
   .table {
     display: grid;
     grid-gap: 70px;
-    padding: 50px;
     width: 100%;
-    box-shadow: none;
 
-    &-row-head {
+    &-header-big {
       display: none;
-      background-color: #55608f;
     }
 
     &-row {
       display: flex;
       &-one {
         display: grid;
-        background-color: $base-header-color;
         @include gridCell;
+        &-item {
+          background-color: $header;
+        }
       }
       &-two {
         @include gridCell;
+        &-item {
+          font-size: 12px;
+        }
       }
     }
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.scss';
 
-const Header = () => {
+const Header = ({tableRowClass, itemClass }) => {
     const headers = [
         'Name',
         'UserName',
@@ -11,8 +11,8 @@ const Header = () => {
         'Address',
     ];
     return (
-        <div className="table-row-two">
-            {headers.map((el) => <div className="table-row-item" key={el}>{el}</div>)}
+        <div className={tableRowClass}>
+            {headers.map((el) => <div className={itemClass} key={el}>{el}</div>)}
         </div>
     );
 };
