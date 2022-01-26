@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Input from "../common/Input/Input";
 import Button from "../common/Button/Button";
+import "./Form.scss";
 
 class Form extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class Form extends Component {
         }
     }
 
-    handleInputValue = (e) => this.setState({value: e.target.value});
+    handleInputValue = (e) => this.setState({value: e.target.value.replace(/[^\d]/g, '')});
 
     handleSubmitValue = () => {
         this.props.addTime(this.state.value);
@@ -19,11 +20,11 @@ class Form extends Component {
 
     render() {
         return (
-            <div>
+            <div className="form">
                 <Input
                     onChange={this.handleInputValue}
                     value={this.state.value}
-                    placeholder="Enter your value"/>
+                    placeholder="Enter your value(seconds)"/>
                 <Button
                     text="set"
                     disabled={!this.state.value.trim()}

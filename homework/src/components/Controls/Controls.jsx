@@ -1,12 +1,12 @@
 import React from 'react';
 import Button from "../common/Button/Button";
 
-const Controls = ({startTimer,stopTimer,resetTimer}) => {
+const Controls = ({startTimer,stopTimer,resetTimer, disabledReset}) => {
     return (
-        <div>
-            <Button text="stop" actionButton={stopTimer}/>
+        <div className="buttons">
             <Button text="start" actionButton={startTimer}/>
-            <Button text="reset" actionButton={resetTimer}/>
+            <Button text="stop" actionButton={stopTimer}/>
+            <Button text="reset" disabled={disabledReset} actionButton={resetTimer}/>
         </div>
     );
 };

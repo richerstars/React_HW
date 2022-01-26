@@ -1,29 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Timer extends Component {
-
-    componentDidMount() {
-        this.timerID = setInterval(() => this.updateTimer(), 1000);
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.timerID);
-    }
-
-    updateTimer = () => {
-        this.setState({
-            minutes: Math.floor(this.props.data / 60),
-            seconds: Math.floor(this.props.data % 60),
-        })
-    }
-
-    render() {
-        return (
-            <>
-                <p>{this.state.minutes} : {this.state.seconds}</p>
-            </>
-        );
-    }
-}
+const Timer = ({data}) => {
+    return (
+        <div className="timer">
+            {Math.floor(data / 60)} : {Math.floor(data % 60)}
+        </div>
+    );
+};
 
 export default Timer;
