@@ -12,12 +12,6 @@ $item-color: rgb(168, 82, 82,1);
 body {
   background: $body-color;
 }
-
-@mixin gridCell {
-  width: 50%;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-}
 %table-item {
   text-align: center;
   border: 1px solid $font-color;
@@ -53,7 +47,6 @@ body {
       grid-template-columns: repeat(6, 1fr);
       &-item {
         text-overflow: ellipsis;
-        overflow: hidden;
         padding: 5px;
         background-color: $item-color;
         @extend %table-item;
@@ -76,13 +69,17 @@ body {
       display: flex;
       &-one {
         display: grid;
-        @include gridCell;
+        width: 50%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, 1fr);
         &-item {
           background-color: $header;
         }
       }
       &-two {
-        @include gridCell;
+        width: 50%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, 1fr);
         &-item {
           font-size: 12px;
         }
