@@ -2,9 +2,9 @@ import React from 'react';
 
 const Row = ({data}) => {
     return (
-        <div>
+        <div className="table-row-two">
             {
-                Object.values(data).map((element,index)=><div key={index}>{element}</div>)
+                Object.values(data).map((element,index)=><div className="table-row-two-item" key={index}>{element}</div>)
             }
         </div>
     );

@@ -1,4 +1,98 @@
-.header{
-  display: grid;
-  grid-template-columns: 14%;
+$base-cell-color: rgba(255,255,255,0.2);
+$base-header-color: #2905c7f7;
+$base-border-color: rgba(255, 255, 255, 0.87);
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: calc(100% - 120px);
+}
+
+body  {
+  margin: 0;
+  background: linear-gradient(45deg, #49a09d, #5f2c82) no-repeat fixed;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+@mixin gridCell {
+  width: 50%;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+%cell {
+  text-align: center;
+  border-top: 1px solid $base-border-color;
+  border-bottom: 1px solid $base-border-color;
+  background-color: $base-cell-color;
+  color: #fff;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table {
+  width: 1200px;
+  margin: 120px auto;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+
+  &-row-head {
+    background-color: $base-header-color;
+  }
+
+  &-row {
+    &-item {
+      @extend %cell;
+    }
+    &-one{
+      display: none;
+      &-item {
+        @extend %cell;
+      }
+    }
+    &-two{
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      &-item {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding: 5px;
+        @extend %cell;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .table {
+    display: grid;
+    grid-gap: 70px;
+    padding: 50px;
+    width: 100%;
+    box-shadow: none;
+
+    &-row-head {
+      display: none;
+      background-color: #55608f;
+    }
+
+    &-row {
+      display: flex;
+      &-one {
+        display: grid;
+        background-color: $base-header-color;
+        @include gridCell;
+      }
+      &-two {
+        @include gridCell;
+      }
+    }
+  }
 }

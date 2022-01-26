@@ -3,6 +3,7 @@ import axios from "axios";
 import Loader from "../Loader/Loader";
 import Header from "./Header/Header";
 import Rows from "./Rows/Rows";
+import "./MainPage.scss";
 
 class MainPage extends Component {
     constructor(props) {
@@ -51,17 +52,16 @@ class MainPage extends Component {
     };
 
     render() {
-        console.log(this.state.users);
         return (
             <>
                 {this.state.isLoading
                     ? <Loader/>
                     :
                     <div className="table">
-                        <div className="header">
+                        <div className="table-row-head">
                             <Header/>
                         </div>
-                        <div className="row">
+                        <div className="table-row">
                             <Rows users={this.state.users}/>
                         </div>
                     </div>

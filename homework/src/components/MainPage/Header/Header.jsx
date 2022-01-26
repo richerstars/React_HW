@@ -11,9 +11,9 @@ const Header = () => {
         'Address',
     ];
     return (
-        <>
-            {headers.map((el) => <div key={el}>{el}</div>)}
-        </>
+        <div className="table-row-two">
+            {headers.map((el) => <div className="table-row-item" key={el}>{el}</div>)}
+        </div>
     );
 };
 
