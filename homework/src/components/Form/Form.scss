@@ -1,0 +1,34 @@
+.form input {
+  outline: none;
+  width: 430px;
+  height: 60px;
+  border: 1px solid #ccc;
+  font-size: 25px;
+  padding-left: 15px;
+  margin: 20px 0 20px 0;
+  text-align: center;
+}
+
+.form button {
+  width: 67px;
+  height: 60px;
+  border: none;
+  background: #f58f28;
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.form button:disabled,
+button[disabled]{
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.form input:focus{
+  border-color: orange;
+}
+.form{
+  display:flex;
+}
