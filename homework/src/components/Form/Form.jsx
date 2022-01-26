@@ -14,6 +14,7 @@ class Form extends Component {
     handleInputValue = (e) => this.setState({value: e.target.value.replace(/[^\d]/g, '')});
 
     handleSubmitValue = () => {
+        this.props.resetTimer();
         this.props.addTime(this.state.value);
         this.setState({value: ''});
     }

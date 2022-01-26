@@ -38,7 +38,7 @@ class MainPage extends Component {
         return (
             <div className="mainWrapper">
                 <h1>React timer</h1>
-                <Form addTime={this.addTimeToTimer}/>
+                <Form resetTimer={this.resetTimer} addTime={this.addTimeToTimer}/>
                 <Timer data={this.state.time}/>
                 <Controls stopTimer={this.stopTimer} startTimer={this.startTimer}
                           disabledReset={this.state.disabledReset} resetTimer={this.resetTimer}/>
