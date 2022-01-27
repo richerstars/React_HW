@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Form from "../Form/Form";
 import Timer from "../Timer/Timer";
 import Controls from "../Controls/Controls";
@@ -32,7 +32,11 @@ class MainPage extends Component {
         this.setState({time: constants.defaultTime, disabledReset: true});
     };
 
-    updateData = () => {this.setState({time: this.state.time - 1});};
+    updateData = () => {
+        this.state.time > 0
+            ? this.setState({time: this.state.time - 1})
+            : this.setState({time: 0, disabledReset: true})
+    };
 
     render() {
         return (
