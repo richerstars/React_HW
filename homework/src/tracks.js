@@ -1,9 +1,9 @@
-import cali from '../src/assets/wataboi.mp3';
-import fifty from '../src/assets/tobylane.mp3';
-import iwonder from '../src/assets/dreamheaven.mp3';
-import imgSrc from '../src/assets/1.jpeg';
-import imgSrc2 from '../src/assets/2.jpg';
-import imgSrc3 from '../src/assets/3.jpg';
+import cali from './helpers/songs/wataboi.mp3';
+import fifty from './helpers/songs/tobylane.mp3';
+import iwonder from './helpers/songs/dreamheaven.mp3';
+import imgSrc from './helpers/photo/1.jpeg';
+import imgSrc2 from './helpers/photo/2.jpg';
+import imgSrc3 from './helpers/photo/3.jpg';
 
 const tracks = [
     {

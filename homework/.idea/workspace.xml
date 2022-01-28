@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea5d873d-9de2-41db-9027-dac744ed8ca1" name="Changes" comment="canvas some">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="ea5d873d-9de2-41db-9027-dac744ed8ca1" name="Changes" comment="some fix styles v 0.01">
+      <change afterPath="$PROJECT_DIR$/src/components/ClassPlayer/AudioPlayerClass.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/photo/1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/photo/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/photo/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/dreamheaven.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/songs/dreamheaven.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/next.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/buttonsPhoto/next.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/pause.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/buttonsPhoto/pause.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/play.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/buttonsPhoto/play.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/prev.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/buttonsPhoto/prev.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/tobylane.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/songs/tobylane.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/wataboi.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/songs/wataboi.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AudioControls.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HooksPlayer/AudioControls.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AudioPlayer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HooksPlayer/AudioPlayer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AudioPlayerClass.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Backdrop.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HooksPlayer/Backdrop.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tracks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tracks.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +47,15 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Андрей\WebstormProjects\React_Dev\homework\src\helpers\buttonsPhoto" />
+      <recent name="C:\Users\Андрей\WebstormProjects\React_Dev\homework\src\helpers\songs" />
+      <recent name="C:\Users\Андрей\WebstormProjects\React_Dev\homework\src\helpers\photo" />
+      <recent name="C:\Users\Андрей\WebstormProjects\React_Dev\homework\src\components\ClassPlayer" />
+      <recent name="C:\Users\Андрей\WebstormProjects\React_Dev\homework\src\components\HooksPlayer" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -77,6 +100,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
