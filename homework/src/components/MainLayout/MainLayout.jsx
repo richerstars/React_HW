@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import './MainLayout.css';
 import Button from "../common/Button/Button";
+import constants from "../constants/NumberConst";
+import constText from "../constants/TextConst";
+import Paragraph from "../common/Paragraph/Paragraph";
+import Input from "../common/Input/Input";
+import hexConst from "../constants/Hex";
 
 class MainLayout extends Component {
     animationFrameID;
@@ -12,7 +17,7 @@ class MainLayout extends Component {
             color: null,
             x: 0,
             y: 0,
-            inputValue: null,
+            inputValue: 1,
         };
         this.canvasRef = React.createRef();
     }
@@ -31,13 +36,13 @@ class MainLayout extends Component {
 
     fillCanvas = () => {
         this.ctx.fillStyle = this.state.color;
-        this.ctx.fillRect(0, 0, 400, 480);
+        this.ctx.fillRect(constants.START_POS_X, constants.START_POS_Y, constants.WIDTH_CANVAS, constants.HEIGHT_CANVAS);
     };
     cleanCanvasWithEraser = () => {this.setState({color: `#FFFFFF`});};
 
     clearCanvas = () => {
         this.ctx.fillStyle = `#FFFFFF`;
-        this.ctx.fillRect(0, 0, 400, 480);
+        this.ctx.fillRect(constants.START_POS_X, constants.START_POS_Y, constants.WIDTH_CANVAS, constants.HEIGHT_CANVAS);
     };
 
     handleMouseMove = (e) => {this.setState({x: e.clientX - this.rect.x, y: e.clientY - this.rect.y});};
@@ -45,7 +50,8 @@ class MainLayout extends Component {
     drawWithMoveRect = () => {
         this.ctx.fillStyle = this.state.color;
         this.ctx.beginPath();
-        this.ctx.fillRect(this.state.x, this.state.y, 2, 2);
+        this.ctx.lineWidth = this.state.inputValue;
+        this.ctx.fillRect(this.state.x, this.state.y, this.state.inputValue, this.state.inputValue);
     };
 
     loop = () => {
@@ -59,28 +65,32 @@ class MainLayout extends Component {
         return (
             <div className="main-wrapper">
                 <div className="content">
-                    <canvas width={400} height={480} ref={this.canvasRef} onMouseMove={this.handleMouseMove}/>
+                    <canvas
+                        width={constants.WIDTH_CANVAS}
+                        height={constants.HEIGHT_CANVAS}
+                        ref={this.canvasRef}
+                        onMouseMove={this.handleMouseMove}/>
                     <div className="components">
                         <div className="input-range">
-                            <input
-                                type="range"
-                                min="0" max="20"
-                                step="1"
-                                value={this.state.inputValue === null ? 1 : this.state.inputValue}
-                                onChange={this.changeRangeValue}/>
-                            <p> Your size of cursor: {this.state.inputValue === null ? 1 : this.state.inputValue}</p>
+                            <Input
+                                type={constText.TYPE_INPUT_RANGE}
+                                value={this.state.inputValue}
+                                actionFunction={this.changeRangeValue}
+                                min={constants.MIN_RANGE}
+                                max={constants.MAX_RANGE}
+                                step={constants.STEP_INPUT}/>
+                            <Paragraph text={constText.TEXT_INPUT} value={this.state.inputValue}/>
                         </div>
                         <div className="color-picker">
-                            <p> Choose your color! </p>
-                            <input
-                                type="color"
-                                value={this.state.color === null ? `#000000` : this.state.color}
-                                onChange={this.changeColor}/>
+                            <Paragraph text={constText.TEXT_COLOR}/>
+                            <Input type={constText.TYPE_INPUT_COLOR}
+                                   value={this.state.color === null ? hexConst.COLOR_DEFAULT : this.state.color}
+                                   actionFunction={this.changeColor}/>
                         </div>
                         <div className="buttons">
-                            <Button text={"Fill canvas"} onClickAction={this.fillCanvas}/>
-                            <Button text={"Eraser"} onClickAction={this.cleanCanvasWithEraser}/>
-                            <Button text={"Clear"} onClickAction={this.clearCanvas}/>
+                            <Button text={constText.FILL_TEXT} onClickAction={this.fillCanvas}/>
+                            <Button text={constText.ERASER} onClickAction={this.cleanCanvasWithEraser}/>
+                            <Button text={constText.CLEAR} onClickAction={this.clearCanvas}/>
                         </div>
                     </div>
                 </div>
