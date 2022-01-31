@@ -9,9 +9,11 @@ $item-color: rgb(168, 82, 82,1);
   margin: 0;
   box-sizing: border-box;
 }
+
 body {
   background: $body-color;
 }
+
 %table-item {
   text-align: center;
   border: 1px solid $font-color;
@@ -29,7 +31,6 @@ body {
   margin: 120px auto;
   border-collapse: collapse;
   box-shadow: 0 0 5px $font-color;
-  background-color: $table;
 
   &-row {
     &-item {
@@ -59,9 +60,11 @@ body {
   .table {
     display: grid;
     grid-gap: 70px;
+    padding: 50px;
     width: 100%;
+    box-shadow: none;
 
-    &-header-big {
+    &-row-head {
       display: none;
     }
 

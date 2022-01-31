@@ -50,14 +50,17 @@ class MainPage extends Component {
                     ? <Loader/>
                     :
                     <div className="table">
-                        <div className="table-header-big">
+                        <div className="table-row-head">
                             <Header tableRowClass="table-row-two" itemClass="table-row-item"/>
                         </div>
-                        <div className="table-row">
-                            <Header itemClass="table-row-one-item"
-                                    tableRowClass="table-row-one"/>
-                            <Rows users={this.state.users}/>
-                        </div>
+{/*                         <div className="table-row"> */}
+{/*                             <Header itemClass="table-row-one-item" */}
+{/*                                     tableRowClass="table-row-one"/> */}
+{/*                             <Rows users={this.state.users}/> */}
+{/*                         </div> */}
+{
+                    this.state.users.map((el, index) => <Rows user={el} key={index} />)
+                }
                     </div>
                 }
             </>
