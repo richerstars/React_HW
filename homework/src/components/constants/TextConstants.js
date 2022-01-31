@@ -5,4 +5,9 @@ export default {
     BACKGROUND_CIRCLE: 'circle-background',
     STYLE_CIRCLE: 'circle',
     STYLE_BUTTON: 'button',
+    VICTORY_1: 'Player 1 wins!',
+    VICTORY_2: 'Player 2 wins!',
+    DRAW: `It's a draw!`,
+    GAME_OVER: 'Game over. Please start a new game.',
+    STYLE_DRAW: 'draw',
 }

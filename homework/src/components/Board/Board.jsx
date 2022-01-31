@@ -3,12 +3,11 @@ import Row from '../Row/Row';
 import './Board.css';
 import stylesConst from '../constants/TextConstants';
 import numberConst from '../constants/NumberConstants';
+import {checkAll} from '../../helpers/CheckBoard';
 
 class Board extends Component {
-
     constructor(props) {
         super(props);
-
         this.state = {
             player1: 1,
             player2: 2,
@@ -22,126 +21,53 @@ class Board extends Component {
 
     initBoard = () => {
         let board = [];
-        for (let r = 0; r < numberConst.ROWS; r++) {
+        for (let rows = 0; rows < numberConst.ROWS; rows++) {
             let row = [];
-            for (let c = 0; c < numberConst.COLUMNS; c++) {
+            for (let columns = 0; columns < numberConst.COLUMNS; columns++) {
                 row.push(null);
             }
             board.push(row);
         }
-
         this.setState({
             board,
             currentPlayer: this.state.player1,
-            IsGameOver: false
+            IsGameOver: false,
         });
     }
 
-    togglePlayer() {
-        return (this.state.currentPlayer === this.state.player1) ? this.state.player2 : this.state.player1;
-    }
+    togglePlayer = () => this.state.currentPlayer === this.state.player1 ? this.state.player2 : this.state.player1;
 
-    play = (c) => {
+    play = (columns) => {
         if (!this.state.IsGameOver) {
             let board = this.state.board;
-            for (let r = 5; r >= 0; r--) {
-                if (!board[r][c]) {
-                    board[r][c] = this.state.currentPlayer;
+            for (let rows = 5; rows >= 0; rows--) {
+                if (!board[rows][columns]) {
+                    board[rows][columns] = this.state.currentPlayer;
                     break;
                 }
             }
 
-            let result = this.checkAll(board);
-            if (result === this.state.player1) {
-                this.setState({board, IsGameOver: true});
-                alert('Player 1 wins!');
-            } else if (result === this.state.player2) {
-                this.setState({board, IsGameOver: true});
-                alert('Player 2 wins!');
-            } else if (result === 'draw') {
-                this.setState({board, IsGameOver: true});
-                alert("It's a draw!");
-            } else {
-                this.setState({board, currentPlayer: this.togglePlayer()});
+            let result = checkAll(board);
+            switch (true) {
+                case result === this.state.player1:
+                    this.setState({board, IsGameOver: true});
+                    alert(stylesConst.VICTORY_1);
+                    break;
+                case result === this.state.player2:
+                    this.setState({board, IsGameOver: true});
+                    alert(stylesConst.VICTORY_2);
+                    break;
+                case result === stylesConst.STYLE_DRAW:
+                    this.setState({board, IsGameOver: true});
+                    alert(stylesConst.DRAW);
+                    break;
+                default:
+                    this.setState({board, currentPlayer: this.togglePlayer()});
+                    break;
             }
         } else {
-            alert("Game over. Please start a new game.");
+            alert(stylesConst.GAME_OVER);
         }
-    }
-
-    checkVertical = (board) => {
-        for (let r = 3; r < numberConst.ROWS; r++) {
-            for (let c = 0; c < numberConst.COLUMNS; c++) {
-                if (board[r][c]) {
-                    if (board[r][c] === board[r - 1][c] &&
-                        board[r][c] === board[r - 2][c] &&
-                        board[r][c] === board[r - 3][c]) {
-                        return board[r][c];
-                    }
-                }
-            }
-        }
-    }
-
-    checkHorizontal = (board) => {
-        for (let r = 0; r < numberConst.ROWS; r++) {
-            for (let c = 0; c < 4; c++) {
-                if (board[r][c]) {
-                    if (board[r][c] === board[r][c + 1] &&
-                        board[r][c] === board[r][c + 2] &&
-                        board[r][c] === board[r][c + 3]) {
-                        return board[r][c];
-                    }
-                }
-            }
-        }
-    }
-
-    checkDiagonalRight = (board) => {
-        for (let r = 3; r < numberConst.ROWS; r++) {
-            for (let c = 0; c < 4; c++) {
-                if (board[r][c]) {
-                    if (board[r][c] === board[r - 1][c + 1] &&
-                        board[r][c] === board[r - 2][c + 2] &&
-                        board[r][c] === board[r - 3][c + 3]) {
-                        return board[r][c];
-                    }
-                }
-            }
-        }
-    }
-
-    checkDiagonalLeft = (board) => {
-        for (let r = 3; r < numberConst.ROWS; r++) {
-            for (let c = 3; c < numberConst.COLUMNS; c++) {
-                if (board[r][c]) {
-                    if (board[r][c] === board[r - 1][c - 1] &&
-                        board[r][c] === board[r - 2][c - 2] &&
-                        board[r][c] === board[r - 3][c - 3]) {
-                        return board[r][c];
-                    }
-                }
-            }
-        }
-    }
-
-    checkDraw = (board) => {
-        for (let r = 0; r < numberConst.ROWS; r++) {
-            for (let c = 0; c < numberConst.COLUMNS; c++) {
-                if (board[r][c] === null) {
-                    return null;
-                }
-            }
-        }
-        return 'draw';
-    }
-
-    checkAll = (board) => {
-        return this.checkVertical(board)
-            || this.checkDiagonalRight(board)
-            || this.checkDiagonalLeft(board)
-            || this.checkHorizontal(board)
-            || this.checkDraw(board);
     }
 
     render() {
