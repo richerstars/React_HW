@@ -38,10 +38,10 @@ class MainLayout extends Component {
         this.ctx.fillStyle = this.state.color;
         this.ctx.fillRect(constants.START_POS_X, constants.START_POS_Y, constants.WIDTH_CANVAS, constants.HEIGHT_CANVAS);
     };
-    cleanCanvasWithEraser = () => {this.setState({color: `#FFFFFF`});};
+    cleanCanvasWithEraser = () => {this.setState({color: hexConst.COLOR_WHITE});};
 
     clearCanvas = () => {
-        this.ctx.fillStyle = `#FFFFFF`;
+        this.ctx.fillStyle = hexConst.COLOR_WHITE;
         this.ctx.fillRect(constants.START_POS_X, constants.START_POS_Y, constants.WIDTH_CANVAS, constants.HEIGHT_CANVAS);
     };
 
