@@ -25,7 +25,7 @@ table {
     transition: background-color 0.5s, color 0.5s;
 }
 
-.tile {
+.circle-background {
     height: 80px;
     width: 80px;
     background-color: blue;

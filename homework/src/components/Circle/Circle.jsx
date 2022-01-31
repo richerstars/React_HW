@@ -1,24 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import stylesConst from '../constants/TextConstants';
+import numberConst from '../constants/NumberConstants';
 
-class Circle extends Component {
-    render() {
-        const { play, columnIndex, value } = this.props;
-        let space = 'open';
+const Circle = ({play, columnIndex, value}) => {
 
-        if (value === 1) {
-            space = 'player1';
-        } else if (value === 2) {
-            space = 'player2';
-        }
+    const handlePlay = () => {play(columnIndex);}
 
-        return (
-            <td>
-                <div className="tile" onClick={() => play(columnIndex)}>
-                    <div className={[space, "circle"].join(' ')}/>
-                </div>
-            </td>
-        );
+    let space = stylesConst.DEFAULT_STYLE_CIRCLE;
+
+    if (value === numberConst.PLAYER_1_VALUE) {
+        space = stylesConst.PLAYER_1;
+    } else if (value === numberConst.PLAYER_2_VALUE) {
+        space = stylesConst.PLAYER_2;
     }
-}
+
+    return (
+        <td>
+            <div className={stylesConst.BACKGROUND_CIRCLE} onClick={handlePlay}>
+                <div className={[space, stylesConst.STYLE_CIRCLE].join(' ')}/>
+            </div>
+        </td>
+    );
+};
 
 export default Circle;
