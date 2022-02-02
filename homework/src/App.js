@@ -1,34 +1,28 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import Form from "./components/Form/Form";
 import List from "./components/List/List";
 import {StyledMainWrapp} from './components/Form/styled';
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {todos: [{value: 'test', id: 1, isChecked: false}]};
+const App = () => {
+    const [todos, setTodos] = useState([{value: 'test', id: 1, isChecked: false}]);
+
+    const addListItem = (values) => {
+        setTodos([...todos, values]);
+    }
+    const removeListItem = (id) => {
+        setTodos(todos.filter(el => el.id !== id));
+    }
+    const changeChecked = (id) => {
+        setTodos(todos.map(el => el.id === id ? {...el, isChecked: !el.isChecked} : el));
     }
 
-    addListItem = (values) => {
-        this.setState(() => ({todos: [...this.state.todos, values]}))
-    }
-    removeListItem = (id) => {
-        this.setState({todos: this.state.todos.filter(el => el.id !== id)});
-    }
-
-    changeChecked = (id) => {
-        this.setState({todos: this.state.todos.map(el => el.id === id ? {...el, isChecked: !el.isChecked} : el)});
-    }
-
-    render() {
-        return (
-            <StyledMainWrapp>
-                <h1> Todo List</h1>
-                <Form addItem={this.addListItem}/>
-                <List todos={this.state.todos} changeTodo={this.changeChecked} deleteTodo={this.removeListItem}/>
-            </StyledMainWrapp>
-        );
-    }
-}
+    return (
+        <StyledMainWrapp>
+            <h1> Todo List</h1>
+            <Form addItem={addListItem}/>
+            <List todos={todos} changeTodo={changeChecked} deleteTodo={removeListItem}/>
+        </StyledMainWrapp>
+    );
+};
 
 export default App;

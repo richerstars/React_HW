@@ -21,6 +21,10 @@ export const StyledButton = styled.button`
   font-size: 22px;
   cursor: pointer;
   margin-left: 10px;
+  &:disabled{
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
 `;
 
 export  const StyledMainWrapp = styled.div`

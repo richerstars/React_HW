@@ -1,36 +1,30 @@
-import React, {Component} from 'react';
-import {StyledInput,StyledButton } from './styled';
+import React, {useState,useRef,useEffect} from 'react';
+import {StyledInput, StyledButton} from './styled';
 
-class Form extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {value: ''};
-        this.inputRef = React.createRef();
-    }
+const Form = ({addItem}) => {
 
-    componentDidMount() {
-        this.inputRef.current.focus();
-    }
-
-    handleInputValue = (e) => this.setState({ value: e.target.value });
-
-    handleSubmitValue = () => {
-        this.props.addItem({
-            value: this.state.value,
+    const [value, setValue] = useState('');
+    const inputRef = useRef();
+    const handleInputValue = (e) => {setValue(e.target.value )};
+    useEffect(()=>{
+       inputRef.current.focus();
+    },[])
+    const handleSubmitValue = () => {
+        addItem({
+            value: value,
             id: Date.now(),
             isChecked: false,
         });
-        this.setState({value: ''})
+        setValue('');
     }
 
-    render() {
-        return (
-            <>
-                <StyledInput ref={this.inputRef} onChange={this.handleInputValue} value={this.state.value} placeholder='Here some text'/>
-                <StyledButton disabled={!this.state.value.trim()} onClick={this.handleSubmitValue}>ADD</StyledButton>
-            </>
-        );
-    }
-}
+    return (
+        <>
+            <StyledInput ref={inputRef} onChange={handleInputValue} value={value}
+                         placeholder='Here some text'/>
+            <StyledButton disabled={!value.trim()} onClick={handleSubmitValue}>ADD</StyledButton>
+        </>
+    );
+};
 
 export default Form;
