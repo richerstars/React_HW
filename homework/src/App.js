@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import Form from "./components/Form/Form";
 import List from "./components/List/List";
-import './App.css';
-
+import {StyledMainWrapp} from './components/Form/styled';
 
 class App extends Component {
     constructor(props) {
@@ -23,11 +22,11 @@ class App extends Component {
 
     render() {
         return (
-            <div className="mainWrapper">
+            <StyledMainWrapp>
                 <h1> Todo List</h1>
                 <Form addItem={this.addListItem}/>
                 <List todos={this.state.todos} changeTodo={this.changeChecked} deleteTodo={this.removeListItem}/>
-            </div>
+            </StyledMainWrapp>
         );
     }
 }

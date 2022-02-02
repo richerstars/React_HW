@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {StyledInput,StyledButton } from './styled';
 
 class Form extends Component {
     constructor(props) {
@@ -24,10 +25,10 @@ class Form extends Component {
 
     render() {
         return (
-            <div className="form">
-                <input ref={this.inputRef} onChange={this.handleInputValue} value={this.state.value} placeholder='Here some text'/>
-                <button disabled={!this.state.value.trim()} onClick={this.handleSubmitValue}>ADD</button>
-            </div>
+            <>
+                <StyledInput ref={this.inputRef} onChange={this.handleInputValue} value={this.state.value} placeholder='Here some text'/>
+                <StyledButton disabled={!this.state.value.trim()} onClick={this.handleSubmitValue}>ADD</StyledButton>
+            </>
         );
     }
 }

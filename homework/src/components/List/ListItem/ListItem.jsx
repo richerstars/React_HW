@@ -1,21 +1,23 @@
 import React from 'react';
+import {StyledBtnsDiv, StyledButton, StyledTasksDiv,StyledParagraph} from './styled';
 
 const ListItem = ({value, checked, id, deleteTodo, isChecked}) => {
-    const delTodo = () =>{
+    const delTodo = () => {
         deleteTodo(id);
     }
-    const moveToChecked = ()=>{
+    const moveToChecked = () => {
         checked(id);
     }
-    return(
-    <div className={isChecked ? "checked" : "tasks" }>
-        <p>{value}</p>
-        <div className="buttons">
-            <button className="list" onClick={delTodo}>Delete</button>
-            <button className="list" onClick={moveToChecked}>Checked</button>
-        </div>
-    </div>
-);}
+    return (
+        <StyledTasksDiv isChecked={isChecked}>
+            <StyledParagraph>{value}</StyledParagraph>
+            <StyledBtnsDiv>
+                <StyledButton onClick={delTodo}>Delete</StyledButton>
+                <StyledButton onClick={moveToChecked}>{isChecked ? "Uncheck" : "Check" }</StyledButton>
+            </StyledBtnsDiv>
+        </StyledTasksDiv>
+    );
+}
 
 
 export default ListItem;
