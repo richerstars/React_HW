@@ -5,13 +5,18 @@ const Form = (props) => {
     const {setUser} = useContext(UserContext);
 
     const [value, setValue] = useState('');
+
     const inputRef = useRef();
+
     const handleInputValue = (e) => {setValue(e.target.value )};
+
     useEffect(()=>{inputRef.current.focus();},[])
+
     const handleSubmitValue = () => {
         setUser(value);
         setValue('');
     }
+
     return (
         <div>
             <input ref={inputRef} onChange={handleInputValue} value={value} placeholder="Here some text"/>
