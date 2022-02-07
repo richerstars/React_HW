@@ -2,7 +2,7 @@ import React, {useContext,useEffect,useState,useRef} from 'react';
 import {UserContext} from '../../context/UserContext';
 
 const Form = (props) => {
-    const {setUser} = useContext(UserContext);
+    const {setUsername} = useContext(UserContext);
 
     const [value, setValue] = useState('');
 
@@ -13,7 +13,7 @@ const Form = (props) => {
     useEffect(()=>{inputRef.current.focus();},[])
 
     const handleSubmitValue = () => {
-        setUser(value);
+        setUsername(value);
         setValue('');
     }
 
