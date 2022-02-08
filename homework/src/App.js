@@ -7,20 +7,18 @@ const App = () => {
     const requestAnimationRef = useRef(null);
     const [state, setState ] = useState({
         isRequestAnimation:true,
-        balls: [],
+        balls: [
+            { x: Math.round(Math.random()* 800), y: Math.round(Math.random()* 800),
+                speedX: Math.round(Math.random()* 5), speedY:  Math.round(Math.random()* 5),
+                radius:  Math.round(Math.random()* 50), color: "#27ff00"},
+            { x: Math.round(Math.random()* 800), y: Math.round(Math.random()* 800),
+                speedX: Math.round(Math.random()* 5), speedY:  Math.round(Math.random()* 5),
+                radius:  Math.round(Math.random()* 50), color: "#1e3ac5"},
+            { x: Math.round(Math.random()* 800), y: Math.round(Math.random()* 800),
+                speedX: Math.round(Math.random()* 5), speedY:  Math.round(Math.random()* 5),
+                radius:  Math.round(Math.random()* 50), color: "#fc0000"},],
     });
-
-    const random =(min, max) => {
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
-
-    const size = random(30, 80);
-    const ballRef = useRef([
-        { x: random(size, 800 - size), y: random(size, 800 - size), vx: random(-5, 5), vy: random(-5, 5), radius: random(0, 50), color: "#e10f0f"},
-        { x: random(size, 800 - size), y: random(size, 800 - size), vx: random(-5, 5), vy: random(-5, 5), radius: random(0, 50), color: "#003bff"},
-        { x: random(size, 800 - size), y: random(size, 800 - size), vx: random(-5, 5), vy: random(-5, 5), radius: random(0, 50), color: "#40bd18"},
-    ]);
-
+    const ballRef = useRef(state.balls);
     const renderCanvas = () => {
         const ctx = canvasRef.current.getContext("2d");
         ctx.clearRect(0, 0, 800, 800);

@@ -9,29 +9,29 @@ export const drawBall = (ctx, ball, date) => {
     ctx.font = `${radius}px Arial`;
     ctx.fillStyle = 'black';
     ctx.textBaseline = 'middle';
-    ctx.fillText(date.getSeconds().toString(), x, y + radius/30);
+    ctx.fillText(date.getSeconds().toString(), x, y);
     ctx.closePath();
     ctx.restore();
 
 };
 
 export const updateBall = (ball) => {
-    ball.x += ball.vx;
-    ball.y += ball.vy;
+    ball.x += ball.speedX;
+    ball.y += ball.speedY;
     if (ball.x + ball.radius >= 799) {
-        ball.vx = -ball.vx;
+        ball.speedX = -ball.speedX;
         ball.x = 800 - ball.radius;
     }
     if (ball.x - ball.radius <= 0) {
-        ball.vx = -ball.vx;
+        ball.speedX = -ball.speedX;
         ball.x = ball.radius;
     }
     if (ball.y + ball.radius >= 800) {
-        ball.vy = -ball.vy;
+        ball.speedY = -ball.speedY;
         ball.y = 800 - ball.radius;
     }
     if (ball.y - ball.radius <= 0) {
-        ball.vy = -ball.vy;
+        ball.speedY = -ball.speedY;
         ball.y = ball.radius;
     }
 };
