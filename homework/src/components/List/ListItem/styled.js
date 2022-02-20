@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from '../../constants';
+import colors from '../../constants/constants';
 
 export const StyledBtnsDiv = styled.div`
   gap: 10px;
