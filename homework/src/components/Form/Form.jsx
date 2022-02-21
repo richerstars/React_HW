@@ -1,7 +1,12 @@
 import React, {useState,useRef,useEffect} from 'react';
 import {StyledInput, StyledButton} from './styled';
+import { useDispatch } from "react-redux";
+import { addTodo } from "../../store/todos/actions";
 
-const Form = ({addItem}) => {
+const Form = () => {
+
+    const dispatch = useDispatch();
+    const handleAddTodo = (newTodo) => dispatch(addTodo(newTodo))
 
     const [value, setValue] = useState('');
     const inputRef = useRef();
@@ -10,7 +15,7 @@ const Form = ({addItem}) => {
        inputRef.current.focus();
     },[])
     const handleSubmitValue = () => {
-        addItem({
+        handleAddTodo({
             value: value,
             id: Date.now(),
             isChecked: false,
