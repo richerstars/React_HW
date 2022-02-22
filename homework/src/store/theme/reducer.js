@@ -1,11 +1,11 @@
 import { CHANGE_THEME } from "./actionsTypes";
 
-const initialState = { theme: {dark: false}};
+const initialState = {dark: false};
 
 const themeReducer = (state = initialState, { type }) => {
     switch (type) {
         case CHANGE_THEME:
-            return {...state, theme: {dark: !state.theme.dark}};
+            return {dark: !state.dark};
         default:
             return state;
     }

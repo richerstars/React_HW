@@ -1,1 +1,1 @@
-export const selectNotification = (state) => state.theme.theme;
+export const selectTheme = (state) => state.theme;

@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     height: 100vh;
     width: 100%;
-    background: ${colors.mainColor};
+    background: ${({dark}) => !dark ? `${colors.mainColor}` : `${colors.borderDoneColor}`};
   }
   h1{
     text-align: center;
