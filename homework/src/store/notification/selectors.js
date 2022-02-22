@@ -1,1 +1,1 @@
-export const selectNotification = (state) => state.todos.notification;
+export const selectNotification = (state) => state.notification.notification;

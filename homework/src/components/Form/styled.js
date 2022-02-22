@@ -35,3 +35,11 @@ export  const StyledMainWrapp = styled.div`
   border-radius: 5px;
   padding: 46px;
 `
+export  const StyledTheme = styled.button`
+  background: ${colors.buttonColor};
+  color: ${colors.semiColor};
+  border: none;
+  margin-left: 450px;
+  height: 30px;
+  cursor: pointer;
+`

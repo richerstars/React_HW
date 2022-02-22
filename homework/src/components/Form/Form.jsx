@@ -2,6 +2,7 @@ import React, {useState,useRef,useEffect} from 'react';
 import {StyledInput, StyledButton} from './styled';
 import { useDispatch } from "react-redux";
 import { addTodo } from "../../store/todos/actions";
+import { showNotification } from "../../store/notification/actions";
 
 const Form = () => {
 
@@ -20,6 +21,7 @@ const Form = () => {
             id: Date.now(),
             isChecked: false,
         });
+        dispatch( showNotification({ message: `Task added successfully`}));
         setValue('');
     }
 

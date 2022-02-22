@@ -5,7 +5,7 @@ import {combineReducers} from "redux";
 
 const rootReducer = combineReducers({
     todos: todosReducer,
-    notify: reducerNotify,
+    notification : reducerNotify,
     theme: reducerTheme,
 });
 
