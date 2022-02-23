@@ -1,7 +1,11 @@
 import {createGlobalStyle} from 'styled-components';
 import colors from '../src/components/constants';
 
-export const GlobalStyle = createGlobalStyle`
+type TTheme = {
+    dark: boolean,
+}
+
+export const GlobalStyle = createGlobalStyle<TTheme>`
   * {
     margin: 0;
     padding: 0;
@@ -18,5 +22,5 @@ export const GlobalStyle = createGlobalStyle`
     text-align: center;
     cursor: default;
   }
-`
+`;
 

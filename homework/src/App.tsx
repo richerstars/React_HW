@@ -5,7 +5,12 @@ import {StyledMainWrapp, StyledTheme } from './components/Form/styled';
 import Notification from "./components/Notification/index";
 import { GlobalStyle } from "./GlobalStyles";
 
-const App = ({dark,changeTheme}) => {
+type TAppProps = {
+    dark: boolean,
+    changeTheme: () => void
+};
+
+const App = ({dark,changeTheme}:TAppProps) => {
     return(
         <>
             <GlobalStyle dark={dark}/>
@@ -18,6 +23,6 @@ const App = ({dark,changeTheme}) => {
             </StyledMainWrapp>
         </>
     );
-}
+};
 
 export default App;
