@@ -1,27 +1,20 @@
 import React, {useState,useRef,useEffect} from 'react';
 import {StyledInput, StyledButton} from './styled';
-import { useDispatch } from "react-redux";
-import { addTodo } from "../../store/todos/actions";
-import { showNotification } from "../../store/notification/actions";
 
-const Form = () => {
-
-    const dispatch = useDispatch();
-    const handleAddTodo = (newTodo) => dispatch(addTodo(newTodo))
+const Form = ({addTodo,showNotification}) => {
 
     const [value, setValue] = useState('');
     const inputRef = useRef();
     const handleInputValue = (e) => {setValue(e.target.value )};
-    useEffect(()=>{
-       inputRef.current.focus();
-    },[])
+    useEffect(()=>{inputRef.current.focus();},[])
+
     const handleSubmitValue = () => {
-        handleAddTodo({
+        addTodo({
             value: value,
             id: Date.now(),
             isChecked: false,
         });
-        dispatch( showNotification({ message: `Task added successfully`}));
+        showNotification({ message: `Task checked successfully`})
         setValue('');
     }
 

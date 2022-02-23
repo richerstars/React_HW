@@ -1,16 +1,11 @@
 import React from 'react';
 import { StNotification } from "./styled";
-import { useSelector,useDispatch } from "react-redux";
-import { selectNotification } from "../../store/notification/selectors";
-import { clearNotification } from "../../store/notification/actions";
 
-const Notification = () => {
-    const dispatch = useDispatch();
-    const {type, message} = useSelector(selectNotification);
+const Notification = ({clearNotification,notification: {type, message}}) => {
     React.useEffect(() => {
         if (type)  {
             setTimeout(()=> {
-                dispatch(clearNotification());
+                clearNotification();
             }, 1500);}
     }, [type]);
     return type && (<StNotification isSuccess={type}><p> {message} </p></StNotification>);
