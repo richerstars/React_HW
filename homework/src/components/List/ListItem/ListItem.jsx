@@ -5,11 +5,11 @@ const ListItem = ({value, checked, id, deleteTodo, isChecked,showNotification}) 
     const delTodo = () => {
         deleteTodo(id);
         showNotification({ message: `Task removed successfully`});
-    }
+    };
     const moveToChecked = () => {
         checked(id);
         showNotification({ message: `Task checked successfully`});
-    }
+    };
     return (
         <StyledTasksDiv isChecked={isChecked}>
             <StyledParagraph>{value}</StyledParagraph>
@@ -19,7 +19,7 @@ const ListItem = ({value, checked, id, deleteTodo, isChecked,showNotification}) 
             </StyledBtnsDiv>
         </StyledTasksDiv>
     );
-}
+};
 
 
 export default ListItem;

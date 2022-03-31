@@ -34,7 +34,7 @@ export  const StyledMainWrapp = styled.div`
   background: ${colors.semiColor};
   border-radius: 5px;
   padding: 46px;
-`
+`;
 export  const StyledTheme = styled.button`
   background: ${colors.buttonColor};
   color: ${colors.semiColor};
@@ -42,4 +42,4 @@ export  const StyledTheme = styled.button`
   margin-left: 450px;
   height: 30px;
   cursor: pointer;
-`
+`;
