@@ -1,5 +1,5 @@
 import {createGlobalStyle} from 'styled-components';
-import colors from '../src/components/constants';
+import colors from './components/constants';
 
 type TTheme = {
     dark: boolean,

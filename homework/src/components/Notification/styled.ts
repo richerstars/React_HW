@@ -11,7 +11,11 @@ const fadeIn = keyframes`
   }
 `;
 
-export const StNotification = styled.div`
+type TStNotification = {
+    isSuccess: string
+};
+
+export const StNotification = styled.div<TStNotification>`
   background: ${({isSuccess}) => isSuccess ? 'green' : 'red'};
   text-align: center;
   position: absolute;
