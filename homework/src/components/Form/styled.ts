@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import colors from '../constants';
 
-export const StyledInput = styled.input`
+type TStInput = {
+    ref: any
+};
+
+export const StyledInput = styled.input<TStInput>`
   outline: none;
   width: 430px;
   height: 60px;

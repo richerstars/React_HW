@@ -14,7 +14,11 @@ export const StyledButton = styled.button`
   height: 30px;
 `;
 
-export const StyledTasksDiv = styled.div`
+type TStItem = {
+    isChecked: boolean
+};
+
+export const StyledTasksDiv = styled.div<TStItem>`
   padding: 10px;
   margin-top: 10px;
   border: 2px solid ${({isChecked}) => isChecked ? `${colors.borderDoneColor}` : `${colors.borderMainColor}`};

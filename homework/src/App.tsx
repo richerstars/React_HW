@@ -1,6 +1,6 @@
 import React from 'react';
-import Form from "./components/Form/index";
-import List from "./components/List/index";
+import Form from "./components/Form";
+import List from "./components/List";
 import {StyledMainWrapp, StyledTheme } from './components/Form/styled';
 import Notification from "./components/Notification/index";
 import { GlobalStyle } from "./GlobalStyles";

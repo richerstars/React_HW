@@ -1,7 +1,14 @@
 import React from 'react';
-import ListItem from "./ListItem/index";
+import ListItem from "./ListItem";
+import {TTodo} from "../../store/todos/actions";
 
-const List = ({todos,deleteTodo,checkedTodo}) => {
+type TProps = {
+    todos: TTodo[],
+    deleteTodo: (id:number)=> void,
+    checkedTodo:(id:number)=> void,
+};
+
+const List = ({todos,deleteTodo,checkedTodo}:TProps) => {
     return (
         <>
             {todos.map((el) =>
